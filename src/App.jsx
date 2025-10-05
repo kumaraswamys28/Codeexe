@@ -57,14 +57,15 @@ function App() {
         onRun={handleRunCode}
         isLoading={isLoading}
       />
-      <main className="flex-grow grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-        {/* Editor Panel */}
-        <div className="h-full overflow-auto">
+      {/* --- CHANGES ARE HERE --- */}
+      <main className="flex-grow grid grid-cols-1 grid-rows-10 md:grid-cols-10 md:grid-rows-1 overflow-hidden">
+        {/* Editor Panel: 70% height on mobile, 70% width on desktop */}
+        <div className="row-span-7 md:col-span-7 md:row-span-1 h-full overflow-auto">
            <CodeEditor language={activeLanguage} code={code} setCode={setCode} />
         </div>
         
-        {/* Output/History Panel */}
-        <div className="h-full overflow-auto border-t md:border-t-0 md:border-l border-border">
+        {/* Output/History Panel: 30% height on mobile, 30% width on desktop */}
+        <div className="row-span-3 md:col-span-3 md:row-span-1 h-full overflow-auto border-t md:border-t-0 md:border-l border-border">
           <OutputPanel 
             result={result}
             isLoading={isLoading}

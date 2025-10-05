@@ -4,7 +4,7 @@ export const LANGUAGES = [
     name: "JavaScript",
     pistonName: "javascript",
     version: "18.15.0",
-    sampleCode: `/* jshint esversion: 6 */
+    sampleCode: `
 function greet(name) {
   return "Hello, " + name + "!";
 }
