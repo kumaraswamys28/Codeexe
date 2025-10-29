@@ -11,16 +11,24 @@ import "ace-builds/src-noconflict/theme-tomorrow_night";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/ext-language_tools";
+import "ace-builds/src-noconflict/theme-tomorrow_night"; 
+import "ace-builds/src-noconflict/theme-github";         
+import "ace-builds/src-noconflict/theme-dracula";       
+import "ace-builds/src-noconflict/theme-vibrant_ink";    
 
+const CodeEditor = ({ language, code, setCode, theme }) => {
+  const aceThemeMap = {
+    'dark-blue': 'tomorrow_night',
+    'light': 'github',
+    'dracula': 'dracula',
+    'synthwave': 'vibrant_ink',
+  };
 
-
-
-const CodeEditor = ({ language, code, setCode }) => {
   return (
     <div className="h-full w-full bg-secondary">
       <AceEditor
         mode={language}
-        theme="tomorrow_night" 
+        theme={aceThemeMap[theme]} // Use the theme from the map
         onChange={setCode}
         value={code}
         name="code-editor"

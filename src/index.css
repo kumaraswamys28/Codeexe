@@ -1,20 +1,53 @@
+/* src/index.css */
 @import url('https://rsms.me/inter/inter.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .bg-primary {
-    background-color: theme('colors.primary');
-  }
-  .text-text-primary {
-    color: theme('colors.text-primary');
-  }
-}
-
 @layer base {
+  :root, [data-theme='dark-blue'] {
+    /* The default theme: Dark Blue */
+    --color-primary: 13 17 23;      /* #0D1117 */
+    --color-secondary: 22 27 34;   /* #161B22 */
+    --color-border: 48 54 61;       /* #30363D */
+    --color-accent: 88 166 255;     /* #58A6FF */
+    --color-accent-hover: 128 185 247; /* #80B9F7 */
+    --color-text-primary: 201 209 217; /* #C9D1D9 */
+    --color-text-secondary: 139 148 158; /* #8B949E */
+    --color-success: 63 185 80;      /* #3FB950 */
+    --color-error: 248 81 73;       /* #F85149 */
+  }
+
+  [data-theme='light'] {
+    --color-primary: 255 255 255;  /* #FFFFFF */
+    --color-secondary: 246 248 250; /* #F6F8FA */
+    --color-border: 208 215 222;    /* #D0D7DE */
+    --color-accent: 9 105 218;      /* #0969DA */
+    --color-accent-hover: 31 125 228; /* #1F7DE4 */
+    --color-text-primary: 36 41 47;  /* #24292F */
+    --color-text-secondary: 87 96 106; /* #57606A */
+    --color-success: 35 134 54;     /* #238636 */
+    --color-error: 207 34 46;      /* #CF222E */
+  }
+
+  [data-theme='dracula'] {
+    --color-primary: 40 42 54;      /* #282a36 */
+    --color-secondary: 68 71 90;   /* #44475a */
+    --color-border: 56 58 72;       /* #383a48 */
+    --color-accent: 189 147 249;    /* #bd93f9 */
+    --color-accent-hover: 200 167 255; /* #c8a7ff */
+    --color-text-primary: 248 248 242; /* #f8f8f2 */
+    --color-text-secondary: 157 158 166; /* #9da0a6 */
+    --color-success: 80 250 123;     /* #50fa7b */
+    --color-error: 255 85 85;       /* #ff5555 */
+  }
+  
+
+
   body {
     @apply bg-primary text-text-primary font-sans antialiased;
+    /* Add a transition for smooth theme changes */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
 }
