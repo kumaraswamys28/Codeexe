@@ -16,7 +16,7 @@ console.log(result);`,
     id: "java",
     name: "Java",
     pistonName: "java",
-    version: "17.0.5",
+    version: "15.0.2",
     sampleCode: `public class Main {
   public static void main(String[] args) {
     System.out.println("Hello, World!");
@@ -49,7 +49,7 @@ print(greet("World"))`,
     id: "ruby",
     name: "Ruby",
     pistonName: "ruby",
-    version: "3.0.0",
+    version: "3.0.1",
     sampleCode: `def greet(name)
   "Hello, #{name}!"
 end
