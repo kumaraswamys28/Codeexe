@@ -1,0 +1,113 @@
+{
+  "base": "vs-dark",
+  "inherit": true,
+  "rules": [
+    {
+      "background": "0D1117",
+      "token": ""
+    },
+    {
+      "foreground": "8B949E",
+      "token": "comment"
+    },
+    {
+      "foreground": "58A6FF",
+      "token": "constant"
+    },
+    {
+      "foreground": "58A6FF",
+      "token": "entity"
+    },
+    {
+      "foreground": "F85149",
+      "token": "text.tex.latex entity"
+    },
+    {
+      "foreground": "80B9F7",
+      "token": "keyword"
+    },
+    {
+      "foreground": "80B9F7",
+      "token": "storage"
+    },
+    {
+      "foreground": "3FB950",
+      "token": "string"
+    },
+    {
+      "foreground": "3FB950",
+      "token": "meta.verbatim"
+    },
+    {
+      "foreground": "58A6FF",
+      "token": "support"
+    },
+    {
+      "foreground": "F85149",
+      "fontStyle": "italic",
+      "token": "invalid.deprecated"
+    },
+    {
+      "foreground": "C9D1D9",
+      "background": "F85149",
+      "token": "invalid.illegal"
+    },
+    {
+      "foreground": "58A6FF",
+      "fontStyle": "italic",
+      "token": "entity.other.inherited-class"
+    },
+    {
+      "foreground": "80B9F7",
+      "token": "string constant.other.placeholder"
+    },
+    {
+      "foreground": "8B949E",
+      "token": "meta.function-call.py"
+    },
+    {
+      "foreground": "8B949E",
+      "token": "meta.tag"
+    },
+    {
+      "foreground": "8B949E",
+      "token": "meta.tag entity"
+    },
+    {
+      "foreground": "C9D1D9",
+      "token": "keyword.type.variant"
+    },
+    {
+      "foreground": "C9D1D9",
+      "token": "source.ocaml keyword.operator"
+    },
+    {
+      "foreground": "58A6FF",
+      "token": "source.ocaml keyword.operator.symbol.infix"
+    },
+    {
+      "foreground": "58A6FF",
+      "token": "source.ocaml keyword.operator.symbol.prefix"
+    },
+    {
+      "fontStyle": "underline",
+      "token": "source.ocaml keyword.operator.symbol.infix.floating-point"
+    },
+    {
+      "fontStyle": "underline",
+      "token": "source.ocaml keyword.operator.symbol.prefix.floating-point"
+    },
+    {
+      "fontStyle": "underline",
+      "token": "source.ocaml constant.numeric.floating-point"
+    }
+  ],
+  "colors": {
+    "editor.foreground": "#C9D1D9",
+    "editor.background": "#0D1117", 
+    "editor.selectionBackground": "#161B22", 
+    "editor.lineHighlightBackground": "#30363D50", 
+    "editorCursor.foreground": "#58A6FF",
+    "editorWhitespace.foreground": "#8B949E50" 
+  }
+}

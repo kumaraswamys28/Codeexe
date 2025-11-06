@@ -1,47 +1,51 @@
-import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/mode-java";
-import "ace-builds/src-noconflict/mode-c_cpp";
-import "ace-builds/src-noconflict/mode-python";
-import "ace-builds/src-noconflict/mode-ruby";
-import "ace-builds/src-noconflict/mode-golang";
-import "ace-builds/src-noconflict/theme-monokai";
-import "ace-builds/src-noconflict/ext-language_tools";
-import "ace-builds/src-noconflict/theme-tomorrow_night";
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/mode-java";
-import "ace-builds/src-noconflict/ext-language_tools";
-import "ace-builds/src-noconflict/theme-tomorrow_night"; 
-import "ace-builds/src-noconflict/theme-github";         
-import "ace-builds/src-noconflict/theme-dracula";       
-import "ace-builds/src-noconflict/theme-vibrant_ink";    
+import Editor from "@monaco-editor/react";
+import dracula from "monaco-themes/themes/Dracula.json";
+import monokai from "../LAZY.json";
 
 const CodeEditor = ({ language, code, setCode, theme }) => {
-  const aceThemeMap = {
-    'dark-blue': 'tomorrow_night',
-    'light': 'github',
-    'dracula': 'dracula',
-    'synthwave': 'vibrant_ink',
+  const monacoThemeMap = {
+    "dark-blue": "monokai",
+    light: "light",
+    dracula: "dracula",
+  };
+
+  const handleEditorWillMount = (monaco) => {
+    monaco.editor.defineTheme("dracula", dracula);
+    monaco.editor.defineTheme("monokai", monokai);
   };
 
   return (
     <div className="h-full w-full bg-secondary">
-      <AceEditor
-        mode={language}
-        theme={aceThemeMap[theme]} // Use the theme from the map
-        onChange={setCode}
-        value={code}
-        name="code-editor"
-        width="100%"
-        height="100%"
-        editorProps={{ $blockScrolling: true }}
-        setOptions={{
-          enableBasicAutocompletion: true,
-          enableLiveAutocompletion: true,
-          showPrintMargin: false,
-          fontSize: "16px"
-        }}
-      />
+     
+      <Editor
+  height="100%"
+  width="100%"
+        language={language}
+  value={code}
+  onChange={setCode}
+  beforeMount={handleEditorWillMount}
+  theme={monacoThemeMap[theme]}
+  options={{
+    fontSize: 16,
+    minimap: { enabled: false },
+    autoClosingBrackets: "always",
+    autoClosingQuotes: "always",
+    autoSurround: "languageDefined",
+    formatOnType: true,
+    formatOnPaste: true,
+    smoothScrolling: true,
+    tabSize: 2,
+    insertSpaces: true,
+    quickSuggestions: { other: true, comments: true, strings: true },
+    wordBasedSuggestions: true,
+    suggestOnTriggerCharacters: true,
+    parameterHints: { enabled: true },
+    acceptSuggestionOnEnter: "on",
+    snippetSuggestions: "inline",
+    contextmenu: true
+  }}
+/>
+
     </div>
   );
 };

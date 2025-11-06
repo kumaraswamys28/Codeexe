@@ -1,0 +1,19 @@
+{
+  "name": "lsp",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "LSP.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "monaco-languageclient": "^10.2.0",
+    "vscode-jsonrpc": "^8.2.1",
+    "vscode-ws-jsonrpc": "^3.5.0",
+    "ws": "^8.18.3"
+  }
+}

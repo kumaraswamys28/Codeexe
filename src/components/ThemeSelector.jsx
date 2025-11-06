@@ -5,6 +5,7 @@ const themes = [
   { id: 'dark-blue', name: 'Dark Blue', icon: '🔵' },
   { id: 'light', name: 'Light', icon: '⚪' },
   { id: 'dracula', name: 'Dracula', icon: '🟣' },
+
 ];
 
 const ThemeSelector = ({ theme, setTheme }) => {
