@@ -17,13 +17,13 @@ const GitHubIcon = () => (
   </svg>
 );
 
-const HistoryPanel = ({ history,activeTab, onHistoryClick, onHistoryDelete }) => {
+const HistoryPanel = ({ history, onHistoryClick, onHistoryDelete }) => {
   if (history.length === 0) {
     return <p className="text-text-secondary text-sm">Your execution history will appear here.</p>;
   }
 
   return (
-    <div className="space-y-3">
+    <><div className="space-y-3">
       {history.map((item) => (
         <HistoryItem
           key={item.id}
@@ -32,28 +32,8 @@ const HistoryPanel = ({ history,activeTab, onHistoryClick, onHistoryDelete }) =>
           onDelete={() => onHistoryDelete(item.id)}
         />
       ))}
-      {activeTab === 'history' && (
-          <div className="absolute bottom-0 right-0 p-3 flex items-center gap-4 text-sm bg-secondary">
-            <a 
-              href="https://github.com/kumaraswamys28" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-text-secondary hover:text-accent transition-colors"
-              aria-label="GitHub Profile"
-            >
-              <GitHubIcon />
-            </a>
-            <a 
-              href="https://kumaraswamys28.github.io/project/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="font-medium text-text-secondary hover:text-accent transition-colors"
-            >
-              More Projects
-            </a>
-          </div>
-        )}
     </div>
+    </>
   );
 };
 

@@ -38,7 +38,7 @@ const OutputPanel = ({ result, isLoading, history,onHistoryDelete , onHistoryCli
   );
 
   return (
-    <div className="bg-secondary flex flex-col h-full">
+    <div className="bg-secondary flex flex-col h-full overflow-y-auto scrollbar-none">
       {/* Tab Headers */}
       <div className="flex-shrink-0 border-b border-border">
         <nav className="flex space-x-2 px-2">
@@ -48,15 +48,15 @@ const OutputPanel = ({ result, isLoading, history,onHistoryDelete , onHistoryCli
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-grow relative overflow-hidden">
+      <div className="flex-grow relative overflow-hidden ">
         {/* Scrollable container for the content */}
-        <div className="absolute inset-0 p-4 overflow-y-auto">
+        <div className="absolute inset-0 p-4 overflow-y-auto  scrollbar-none">
           {activeTab === 'output' && <ResultsPanel result={result} isLoading={isLoading} />}
           {activeTab === 'history' && <HistoryPanel activeTab={activeTab} history={history} onHistoryDelete={onHistoryDelete} onHistoryClick={onHistoryClick} />}
         </div>
         
         {/* It only shows when the 'output' tab is active */}
-        {activeTab === 'output' && (
+        
           <div className="absolute bottom-0 right-0 p-3 flex items-center gap-4 text-sm bg-secondary">
             <a 
               href="https://github.com/kumaraswamys28" 
@@ -76,7 +76,7 @@ const OutputPanel = ({ result, isLoading, history,onHistoryDelete , onHistoryCli
               More Projects
             </a>
           </div>
-        )}
+       
       </div>
     </div>
   );

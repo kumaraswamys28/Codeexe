@@ -1,4 +1,34 @@
 export const LANGUAGES = [
+   {
+    id: "note",
+    name: "Note",
+    pistonName: "note",
+    version: "0.0.0",
+    sampleCode: `#Intro#
+
+Welcome to your Code Editor!
+
+This is your scratchpad. You can write code, take notes, or test snippets.
+
+## How to use:
+
+1.  Run Code:
+    * Select a language 
+    * Write your code.
+    * Click 'Run' to execute.
+
+    #python#
+    print("Hello from Python!")
+
+2.  Save a Note:
+    * Write anything you want to save.
+    * Add a tag like #note# or #todo# anywhere in the text.
+    * Click 'Save'. The tag will become the title in your history.
+
+    #note#
+    Remember to refactor the Header component.
+`,
+  },
     {
     id: "java",
     name: "Java",
@@ -10,13 +40,7 @@ export const LANGUAGES = [
   }
 }`,
   },
-    {
-    id: "note",
-    name: "Note",
-    pistonName: "note",
-    version: "0.0.0",
-    sampleCode: `# Write a note for ur self`,
-  },
+   
   
   {
     id: "javascript",

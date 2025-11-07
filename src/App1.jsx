@@ -67,35 +67,50 @@ function App() {
 
 const handleSaveCode = () => {
      if (!code) return;
+
+     const tagMatch = code.match(/#\s*([^#\s]+)\s*#/);
+     let languageIdToSave = activeLanguage;
+     if (tagMatch && tagMatch[1]) {
+       languageIdToSave = tagMatch[1];
+     }
   
+     const firstNonEmptyLine = code.split('\n').find(line => line.trim() !== '') || '';
+
      const savedSnapshot = {
        isError: false,
-       message: "Saved snapshot",
-       output: "note saved " 
+       message: languageIdToSave !== activeLanguage 
+                  ? `Saved snapshot ${languageIdToSave}` 
+                  : "Saved snapshot",
+       output: firstNonEmptyLine
      };
+
      setResult(savedSnapshot);
+
      setHistory([
        { 
          id: Date.now(), 
-         languageId: activeLanguage, 
+         languageId: languageIdToSave, 
          code: code, 
          result: savedSnapshot 
        }, 
        ...history
       ]);
-
   };
 
 
    const handleHistoryDelete = (id) => {
-    // Filter out the item with the matching id
     setHistory(currentHistory => 
       currentHistory.filter(item => item.id !== id)
     );
   };
 
   const handleHistoryClick = (historyItem) => {
-    setActiveLanguage(historyItem.languageId);
+    if(historyItem.languageId == 'javascript' || historyItem.languageId == 'python' || historyItem.languageId == 'java' || historyItem.languageId == 'c_cpp' || historyItem.languageId == 'golang' || historyItem.languageId == 'ruby'){
+          setActiveLanguage(historyItem.languageId);
+    } else{
+          setActiveLanguage('note');
+    }
+
     setCode(historyItem.code);
     setResult(historyItem.result);
   };
