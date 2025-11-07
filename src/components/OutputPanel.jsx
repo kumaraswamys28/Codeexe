@@ -21,7 +21,7 @@ const GitHubIcon = () => (
 );
 
 
-const OutputPanel = ({ result, isLoading, history, onHistoryClick }) => {
+const OutputPanel = ({ result, isLoading, history,onHistoryDelete , onHistoryClick }) => {
   const [activeTab, setActiveTab] = useState('output');
 
   const TabButton = ({ name, label }) => (
@@ -52,10 +52,9 @@ const OutputPanel = ({ result, isLoading, history, onHistoryClick }) => {
         {/* Scrollable container for the content */}
         <div className="absolute inset-0 p-4 overflow-y-auto">
           {activeTab === 'output' && <ResultsPanel result={result} isLoading={isLoading} />}
-          {activeTab === 'history' && <HistoryPanel history={history} onHistoryClick={onHistoryClick} />}
+          {activeTab === 'history' && <HistoryPanel activeTab={activeTab} history={history} onHistoryDelete={onHistoryDelete} onHistoryClick={onHistoryClick} />}
         </div>
         
-        {/* --- NEW FOOTER --- */}
         {/* It only shows when the 'output' tab is active */}
         {activeTab === 'output' && (
           <div className="absolute bottom-0 right-0 p-3 flex items-center gap-4 text-sm bg-secondary">
