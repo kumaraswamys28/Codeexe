@@ -40,6 +40,21 @@ This is your scratchpad. You can write code, take notes, or test snippets.
   }
 }`,
   },
+  {
+    id: "typescript",
+    name: "TypeScript",
+    pistonName: "typescript",
+    version: "5.0.3",
+    sampleCode: `function greet(name: string): string {
+  // Uses string concatenation instead of template literals
+  return "Hello, " + name + "!";
+}
+
+const user: string = "World";
+const message: string = greet(user);
+
+console.log(message);`,
+  },
    
   
   {
@@ -56,7 +71,7 @@ const result = greet("World");
 console.log(result);`,
   },
   {
-    id: "c_cpp",
+    id: "cpp",
     name: "C",
     pistonName: "c",
     version: "10.2.0",
@@ -89,7 +104,7 @@ end
 puts greet("World")`,
   },
   {
-    id: "golang",
+    id: "go",
     name: "Go",
     pistonName: "go",
     version: "1.16.2",
