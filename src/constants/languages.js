@@ -1,4 +1,23 @@
 export const LANGUAGES = [
+    {
+    id: "java",
+    name: "Java",
+    pistonName: "java",
+    version: "15.0.2",
+    sampleCode: `public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello, World!");
+  }
+}`,
+  },
+    {
+    id: "note",
+    name: "Note",
+    pistonName: "note",
+    version: "0.0.0",
+    sampleCode: `# Write a note for ur self`,
+  },
+  
   {
     id: "javascript",
     name: "JavaScript",
@@ -11,17 +30,6 @@ function greet(name) {
 
 const result = greet("World");
 console.log(result);`,
-  },
-  {
-    id: "java",
-    name: "Java",
-    pistonName: "java",
-    version: "15.0.2",
-    sampleCode: `public class Main {
-  public static void main(String[] args) {
-    System.out.println("Hello, World!");
-  }
-}`,
   },
   {
     id: "c_cpp",

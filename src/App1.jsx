@@ -55,7 +55,6 @@ function App() {
         output: isError ? response.run.stderr : response.run.output,
       };
       setResult(newResult);
-      // This setHistory call will now trigger the useEffect to save
       setHistory([{ id: Date.now(), languageId: activeLanguage, code, result: newResult }, ...history]);
     } catch (error) {
       const errorResult = { isError: true, message: `API Error: ${error.message}`, output: error.toString() };
@@ -64,6 +63,29 @@ function App() {
       setIsLoading(false);
     }
   };
+
+
+const handleSaveCode = () => {
+     if (!code) return;
+  
+     const savedSnapshot = {
+       isError: false,
+       message: "Saved snapshot",
+       output: "note saved " 
+     };
+     setResult(savedSnapshot);
+     setHistory([
+       { 
+         id: Date.now(), 
+         languageId: activeLanguage, 
+         code: code, 
+         result: savedSnapshot 
+       }, 
+       ...history
+      ]);
+
+  };
+
 
    const handleHistoryDelete = (id) => {
     // Filter out the item with the matching id
@@ -83,6 +105,7 @@ function App() {
       <Header
         language={activeLanguage}
         onLanguageChange={handleLanguageChange}
+        onSave={handleSaveCode}
         onRun={handleRunCode}
         isLoading={isLoading}
         theme={theme}
