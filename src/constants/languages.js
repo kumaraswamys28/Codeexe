@@ -46,7 +46,6 @@ This is your scratchpad. You can write code, take notes, or test snippets.
     pistonName: "typescript",
     version: "5.0.3",
     sampleCode: `function greet(name: string): string {
-  // Uses string concatenation instead of template literals
   return "Hello, " + name + "!";
 }
 

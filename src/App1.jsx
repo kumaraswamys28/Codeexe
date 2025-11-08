@@ -131,6 +131,9 @@ const handleSaveCode = () => {
           <CodeEditor
             language={activeLanguage}
             code={code}
+
+           
+            onRun={activeLanguage == 'note' ? handleSaveCode : handleRunCode}
             setCode={setCode}
             theme={theme}
           />
