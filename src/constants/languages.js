@@ -34,7 +34,9 @@ This is your scratchpad. You can write code, take notes, or test snippets.
     name: "Java",
     pistonName: "java",
     version: "15.0.2",
-    sampleCode: `public class Main {
+    sampleCode: `import java.util.*;
+
+public class Main {
   public static void main(String[] args) {
     System.out.println("Hello, World!");
   }

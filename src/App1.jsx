@@ -7,6 +7,7 @@ import { LANGUAGES } from "./constants/languages";
 import { executeCode } from "./services/pistonApi";
 
 function App() {
+
   // --- THEME STATE MANAGEMENT ---
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "dark-blue";
@@ -34,6 +35,8 @@ function App() {
   }, [history]); 
 
   const handleLanguageChange = (langId) => {
+    console.log(langId);
+    
     const newLang = LANGUAGES.find(l => l.id === langId);
     if (newLang) {
       setActiveLanguage(langId);
@@ -131,8 +134,7 @@ const handleSaveCode = () => {
           <CodeEditor
             language={activeLanguage}
             code={code}
-
-           
+            onChangeLanguage={handleLanguageChange}
             onRun={activeLanguage == 'note' ? handleSaveCode : handleRunCode}
             setCode={setCode}
             theme={theme}
