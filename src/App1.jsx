@@ -93,7 +93,7 @@ const handleSaveCode = () => {
      setHistory([
        { 
          id: Date.now(), 
-         languageId: `Notes -> ${languageIdToSave}`, 
+         languageId: `${languageIdToSave} -> Notes`, 
          code: code, 
          result: savedSnapshot 
        }, 
