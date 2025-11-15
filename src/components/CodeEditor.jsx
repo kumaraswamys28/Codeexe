@@ -35,7 +35,6 @@ const LANGUAGES = [
   const onRunRef = useRef(onRun);
 
 
-  // keep latest onRun in ref (so closure always fresh)
   useEffect(() => {
     onRunRef.current = onRun;
 
@@ -69,20 +68,16 @@ editor.addAction({
   label: "Previous Language (Ctrl+↑)",
   keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.UpArrow],
   run: () => {
-    // --- Add these console logs for debugging ---
-    console.log("DEBUG: Current language variable value:", language);
-    console.log("DEBUG: Entire LANGUAGES list:", LANGUAGES.map(l => l.id));
-    
+  
     const ids = LANGUAGES.map((l) => l.id);
     const idx = ids.indexOf(language);
 
     console.log("DEBUG: Index of current language:", idx);
 
-    // If idx is -1, it means the value in the 'language' variable 
-    // doesn't match anything in your list. 
+ 
     if (idx === -1) {
         console.error("CRITICAL ERROR: Language variable value is invalid or misspelled!");
-        return; // Stop execution if we can't find the language
+        return; 
     }
 
     const prevIdx = (idx - 1 + ids.length) % ids.length;
@@ -99,7 +94,6 @@ editor.addAction({
   label: "Next Language (Ctrl+↓)",
   keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.DownArrow],
   run: () => {
-    // We rely on the external 'language' variable being correct here
     const currentLanguage = language; 
 
     const ids = LANGUAGES.map((l) => l.id);
@@ -115,7 +109,6 @@ editor.addAction({
     
     console.log(`Next: Current(${currentLanguage}) -> Next(${nextLang})`);
 
-    // Only call the state change handler
     onChangeLanguage(nextLang); 
   },
 });
@@ -161,7 +154,10 @@ editor.addAction({
     parameterHints: { enabled: true },
     acceptSuggestionOnEnter: "on",
     snippetSuggestions: "inline",
-    contextmenu: true
+    contextmenu: true,
+    wordWrap: "on",
+    wordWrapColumn: 80
+  
   }}
 />
 
