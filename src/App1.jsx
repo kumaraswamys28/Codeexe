@@ -71,7 +71,9 @@ function App() {
 const handleSaveCode = () => {
      if (!code) return;
 
-     const tagMatch = code.match(/#\s*([^#\s]+)\s*#/);
+     const tagMatch = code.match(/#\s*(.*?)\s*#/);
+     console.log(tagMatch);
+     
      let languageIdToSave = activeLanguage;
      if (tagMatch && tagMatch[1]) {
        languageIdToSave = tagMatch[1];
